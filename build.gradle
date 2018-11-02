@@ -1,0 +1,27 @@
+apply plugin: 'eclipse'
+apply plugin: 'groovy'
+apply plugin: 'application'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.4.15'
+    testCompile 'org.spockframework:spock-core:1.1-groovy-2.4-rc-2'
+}
+
+task javaEquals(type: JavaExec, group: 'equals') {
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'equals.MainJava'
+}
+
+task groovyEqualsComparator(type: JavaExec, group: 'equals') {
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'equals.MainGroovyComparator'
+}
+
+task groovyEqualsComparable(type: JavaExec, group: 'equals') {
+    classpath = sourceSets.main.runtimeClasspath
+    main = 'equals.MainGroovyComparable'
+}
